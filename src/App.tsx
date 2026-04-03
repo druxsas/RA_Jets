@@ -14,6 +14,7 @@ import {
   MapPin,
   Mail,
   ChevronUp,
+  ChevronDown,
 } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -22,6 +23,34 @@ const NAV_ITEMS = [
   { label: 'Advantages', href: 'advantages' },
   { label: 'FAQ', href: 'faq' },
 ]
+
+function FooterSection({ title, children }: { title: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div>
+      {/* Desktop: static title + content */}
+      <h4 className="hidden md:block text-sm font-semibold text-white uppercase tracking-wider mb-4">
+        {title}
+      </h4>
+      <div className="hidden md:block">{children}</div>
+
+      {/* Mobile: accordion */}
+      <button
+        className="md:hidden w-full flex items-center justify-between py-3 border-t border-gray-700 cursor-pointer"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="text-sm font-semibold text-white uppercase tracking-wider">{title}</span>
+        <ChevronDown
+          size={16}
+          className={`text-gray-400 transition-transform duration-500 ease-in-out ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+      <div className={`md:hidden overflow-hidden faq-panel ${open ? 'is-open' : ''}`}>
+        <div className="pt-3 pb-1">{children}</div>
+      </div>
+    </div>
+  )
+}
 
 const VIDEO_URL = '/video/hero.mp4?v=2'
 
@@ -263,7 +292,7 @@ export default function App() {
       </div>{/* end hero clip wrapper */}
 
       {/* ===== STORY SECTION ===== */}
-      <section id="about" className="relative z-10 py-12 md:py-24 bg-white shadow-section-top">
+      <section id="about" className="relative z-10 py-12 md:py-24 bg-white shadow-section-top overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             {/* Text */}
@@ -488,15 +517,46 @@ export default function App() {
       </section>
 
       {/* Spacer for fixed footer */}
-      <div ref={spacerRef} className="relative z-10" />
+      <div ref={spacerRef} className="relative z-10 pointer-events-none" />
 
       {/* ===== FOOTER ===== */}
-      <footer ref={footerRef} className="fixed bottom-0 left-0 right-0 z-[5] entrance-footer bg-navy">
+      <footer ref={footerRef} className="fixed bottom-0 left-0 right-0 z-[5] entrance-footer bg-navy overflow-hidden overflow-y-auto max-h-screen">
         <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-12">
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">RA_Jets</h3>
+              <div className="mb-4">
+                <span className="flex items-center gap-1.5">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 2L28 8V18C28 24 22.5 29 16 30C9.5 29 4 24 4 18V8L16 2Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M16 4L26 9V18C26 23 21.5 27.5 16 28.5C10.5 27.5 6 23 6 18V9L16 4Z"
+                      fill="none"
+                      stroke="rgba(255,255,255,0.3)"
+                      strokeWidth="0.5"
+                    />
+                    <path
+                      d="M16 8L11.5 17H14V20H18V17H20.5L16 8Z"
+                      fill="#1B2A4A"
+                    />
+                    <line x1="16" y1="20" x2="16" y2="23" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                  <span className="flex items-baseline gap-0">
+                    <span className="text-xl font-bold tracking-tight text-white">RA</span>
+                    <span className="text-xs font-medium tracking-widest uppercase color-gold ml-0.5">Jets</span>
+                  </span>
+                </span>
+              </div>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Premium private aviation, made accessible. Your journey begins the moment you
                 contact us.
@@ -504,10 +564,7 @@ export default function App() {
             </div>
 
             {/* Quick Links */}
-            <div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-                Quick Links
-              </h4>
+            <FooterSection title="Quick Links">
               <ul className="space-y-3">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.href}>
@@ -520,13 +577,10 @@ export default function App() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterSection>
 
             {/* Contact */}
-            <div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-                Contact
-              </h4>
+            <FooterSection title="Contact">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2 text-gray-400 text-sm">
                   <Phone size={14} />
@@ -541,13 +595,10 @@ export default function App() {
                   Miami, FL — New York, NY
                 </li>
               </ul>
-            </div>
+            </FooterSection>
 
             {/* Hours */}
-            <div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-                Availability
-              </h4>
+            <FooterSection title="Availability">
               <ul className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Clock size={14} />
@@ -556,11 +607,11 @@ export default function App() {
                 <li>Concierge: Mon–Sun</li>
                 <li>Operations: 365 days/year</li>
               </ul>
-            </div>
+            </FooterSection>
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-16 pt-8 border-t border-gray-700 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="mt-8 md:mt-16 pt-6 md:pt-8 md:border-t md:border-gray-700 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-500 text-sm">
               &copy; {new Date().getFullYear()} RA_Jets. All rights reserved.
             </p>
