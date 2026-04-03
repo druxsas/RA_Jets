@@ -229,30 +229,30 @@ export default function App() {
         <div className="relative h-full flex flex-col">
 
           {/* Hero Content */}
-          <div className="flex-1 flex items-center justify-center pt-16 md:pt-20 px-4">
-            <div className="liquid-glass-light rounded-3xl px-10 py-12 md:px-16 md:py-14 text-center">
-              <p className="text-sm font-semibold tracking-wider mb-4 entrance-label text-white">
+          <div className="flex-1 flex items-center justify-center pt-0 md:pt-20 px-4">
+            <div className="liquid-glass-light rounded-3xl px-6 py-8 sm:px-10 sm:py-12 md:px-16 md:py-14 text-center max-w-lg md:max-w-none">
+              <p className="text-xs sm:text-sm font-semibold tracking-wider mb-3 sm:mb-4 entrance-label text-white">
                 EXCLUSIVE CHARTER
               </p>
               <h1>
-                <span className="block text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tighter entrance-heading-1 text-white text-shadow-hero">
+                <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tighter entrance-heading-1 text-white text-shadow-hero">
                   Fly Beyond
                 </span>
-                <span className="block text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tighter entrance-heading-2 text-white text-shadow-hero">
+                <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tighter entrance-heading-2 text-white text-shadow-hero">
                   Limits
                 </span>
               </h1>
-              <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto mt-6 entrance-subtitle color-white-muted">
+              <p className="text-base sm:text-lg md:text-xl mb-5 sm:mb-6 max-w-2xl mx-auto mt-4 sm:mt-6 entrance-subtitle color-white-muted">
                 Where every mile becomes a first-class experience.
               </p>
-              <div className="flex items-center justify-center gap-4 entrance-buttons">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 entrance-buttons">
                 <a
                   href="#about"
-                  className="btn-ghost px-6 py-3 rounded-full font-medium text-white border border-white/30 hover:border-white/60 hover:bg-white/10"
+                  className="btn-ghost px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-base text-white border border-white/30 hover:border-white/60 hover:bg-white/10 whitespace-nowrap"
                 >
                   Explore Fleet
                 </a>
-                <a href="#experience" className="btn-primary">
+                <a href="#experience" className="btn-primary text-sm sm:text-base whitespace-nowrap">
                   Reserve Now
                 </a>
               </div>
