@@ -296,7 +296,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             {/* Text */}
-            <AnimateOnScroll animation="fade-left">
+            <AnimateOnScroll animation="stagger">
               <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
                 ABOUT US
               </p>
@@ -354,7 +354,7 @@ export default function App() {
       {/* ===== RATES SECTION ===== */}
       <section id="experience" className="relative z-10 py-12 md:py-24 bg-gray-50">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <AnimateOnScroll animation="fade-up" className="text-center mb-10 md:mb-16">
+          <AnimateOnScroll animation="stagger" className="text-center mb-10 md:mb-16">
             <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
               EXPERIENCE
             </p>
@@ -431,7 +431,7 @@ export default function App() {
       {/* ===== BENEFITS SECTION ===== */}
       <section id="advantages" className="relative z-10 py-12 md:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <AnimateOnScroll animation="fade-up" className="text-center mb-10 md:mb-16">
+          <AnimateOnScroll animation="stagger" className="text-center mb-10 md:mb-16">
             <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
               ADVANTAGES
             </p>
@@ -470,7 +470,7 @@ export default function App() {
       {/* ===== FAQ SECTION ===== */}
       <section id="faq" className="relative z-10 py-12 md:py-24 bg-gray-50 shadow-section-bottom">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <AnimateOnScroll animation="fade-up" className="text-center mb-10 md:mb-16">
+          <AnimateOnScroll animation="stagger" className="text-center mb-10 md:mb-16">
             <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
               FAQ
             </p>
