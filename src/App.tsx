@@ -263,15 +263,15 @@ export default function App() {
       </div>{/* end hero clip wrapper */}
 
       {/* ===== STORY SECTION ===== */}
-      <section id="about" className="relative z-10 py-24 bg-white shadow-section-top">
-        <div className="mx-auto max-w-7xl px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="relative z-10 py-12 md:py-24 bg-white shadow-section-top">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             {/* Text */}
             <AnimateOnScroll animation="fade-left">
               <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
                 ABOUT US
               </p>
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 color-navy">
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 md:mb-6 color-navy">
                 Redefining Private Aviation
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
@@ -309,7 +309,7 @@ export default function App() {
           </div>
 
           {/* Stats Row */}
-          <AnimateOnScroll animation="stagger" className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <AnimateOnScroll animation="stagger" className="mt-12 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-3xl md:text-4xl font-bold tracking-tight color-navy">
@@ -323,13 +323,13 @@ export default function App() {
       </section>
 
       {/* ===== RATES SECTION ===== */}
-      <section id="experience" className="relative z-10 py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-8">
-          <AnimateOnScroll animation="fade-up" className="text-center mb-16">
+      <section id="experience" className="relative z-10 py-12 md:py-24 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <AnimateOnScroll animation="fade-up" className="text-center mb-10 md:mb-16">
             <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
               EXPERIENCE
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 color-navy">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 color-navy">
               Choose Your Experience
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -400,13 +400,13 @@ export default function App() {
       </section>
 
       {/* ===== BENEFITS SECTION ===== */}
-      <section id="advantages" className="relative z-10 py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-8">
-          <AnimateOnScroll animation="fade-up" className="text-center mb-16">
+      <section id="advantages" className="relative z-10 py-12 md:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <AnimateOnScroll animation="fade-up" className="text-center mb-10 md:mb-16">
             <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
               ADVANTAGES
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 color-navy">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 color-navy">
               The Difference Is in the Details
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -439,13 +439,13 @@ export default function App() {
       </section>
 
       {/* ===== FAQ SECTION ===== */}
-      <section id="faq" className="relative z-10 py-24 bg-gray-50 shadow-section-bottom">
-        <div className="mx-auto max-w-3xl px-8">
-          <AnimateOnScroll animation="fade-up" className="text-center mb-16">
+      <section id="faq" className="relative z-10 py-12 md:py-24 bg-gray-50 shadow-section-bottom">
+        <div className="mx-auto max-w-3xl px-5 md:px-8">
+          <AnimateOnScroll animation="fade-up" className="text-center mb-10 md:mb-16">
             <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
               FAQ
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 color-navy">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 color-navy">
               Frequently Asked Questions
             </h2>
             <p className="text-gray-600 text-lg">
@@ -492,8 +492,8 @@ export default function App() {
 
       {/* ===== FOOTER ===== */}
       <footer ref={footerRef} className="fixed bottom-0 left-0 right-0 z-[5] entrance-footer bg-navy">
-        <div className="mx-auto max-w-7xl px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             {/* Brand */}
             <div>
               <h3 className="text-2xl font-semibold text-white mb-4">RA_Jets</h3>
