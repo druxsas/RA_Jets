@@ -1,0 +1,47 @@
+export const RATES = [
+  {
+    tier: 'Light',
+    description: 'Ideal for short trips and small groups',
+    capacity: '4–6 passengers',
+    price: '$4,500',
+    unit: '/flight hour',
+    features: [
+      'Range up to 2,000 nm',
+      'Complimentary refreshments',
+      'Wi-Fi connectivity',
+      'Luggage: 6 standard bags',
+      'Dedicated flight attendant',
+    ],
+    highlighted: false,
+  },
+  {
+    tier: 'Midsize',
+    description: 'The perfect balance of comfort and range',
+    capacity: '7–9 passengers',
+    price: '$7,200',
+    unit: '/flight hour',
+    features: [
+      'Range up to 3,500 nm',
+      'Full catering service',
+      'Satellite phone & Wi-Fi',
+      'Luggage: 10 standard bags',
+      'Stand-up cabin height',
+    ],
+    highlighted: true,
+  },
+  {
+    tier: 'Heavy',
+    description: 'Ultimate luxury for long-range travel',
+    capacity: '10–16 passengers',
+    price: '$12,800',
+    unit: '/flight hour',
+    features: [
+      'Range up to 6,500 nm',
+      'Gourmet dining experience',
+      'Full entertainment suite',
+      'Master suite & shower',
+      'Dedicated crew of three',
+    ],
+    highlighted: false,
+  },
+]
