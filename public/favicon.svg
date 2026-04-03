@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Shield -->
+  <path d="M16 2L28 8V18C28 24 22.5 29 16 30C9.5 29 4 24 4 18V8L16 2Z" fill="#1B2A4A" />
+  <!-- Inner highlight -->
+  <path d="M16 4L26 9V18C26 23 21.5 27.5 16 28.5C10.5 27.5 6 23 6 18V9L16 4Z" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" />
+  <!-- Jet -->
+  <path d="M16 8L11.5 17H14V20H18V17H20.5L16 8Z" fill="white" />
+  <!-- Gold accent -->
+  <line x1="16" y1="20" x2="16" y2="23" stroke="#B9924F" stroke-width="1.5" stroke-linecap="round" />
+</svg>
