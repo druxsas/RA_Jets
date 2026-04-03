@@ -2,13 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   CSS Custom Properties — Design Tokens
+   Single source of truth for values used
+   outside of Tailwind (SVG fills, gradients)
+   ======================================== */
+
+:root {
+  --color-navy: #1B2A4A;
+  --color-gold: #B9924F;
+  --color-cta-primary: #1B2A4A;
+  --color-cta-highlight: #2E4A7A;
+}
+
+/* ========================================
+   Typography — @layer components
+   Maps 1:1 to Figma Text Styles
+   ======================================== */
+
+@layer components {
+  /* Display */
+  .text-display-h1 {
+    @apply font-semibold;
+    font-size: 5rem;                    /* 80px */
+    line-height: 5.5rem;               /* 88px */
+    letter-spacing: -0.1875rem;        /* -3px */
+  }
+  .text-display-h2 {
+    @apply font-semibold;
+    font-size: 3rem;                    /* 48px */
+    line-height: 3.5rem;               /* 56px */
+    letter-spacing: -0.09375rem;       /* -1.5px */
+  }
+  .text-display-h3 {
+    @apply font-semibold;
+    font-size: 1.25rem;                /* 20px */
+    line-height: 1.75rem;              /* 28px */
+  }
+  .text-display-h1-mobile {
+    @apply font-semibold;
+    font-size: 2.25rem;                /* 36px */
+    line-height: 2.5rem;               /* 40px */
+    letter-spacing: -0.05rem;
+  }
+  .text-display-h2-mobile {
+    @apply font-semibold;
+    font-size: 1.875rem;               /* 30px */
+    line-height: 2.25rem;              /* 36px */
+    letter-spacing: -0.03rem;
+  }
+
+  /* Body */
+  .text-body-large {
+    font-size: 1.125rem;               /* 18px */
+    line-height: 1.75rem;              /* 28px */
+  }
+  .text-body-large-20 {
+    font-size: 1.25rem;                /* 20px */
+    line-height: 100%;
+  }
+  .text-body-base {
+    @apply text-base leading-6;        /* 16/24 */
+  }
+  .text-body-small {
+    @apply text-sm leading-5;          /* 14/20 */
+  }
+  .text-body-xsmall {
+    font-size: 0.75rem;                /* 12px */
+    line-height: 1rem;                 /* 16px */
+  }
+
+  /* Labels */
+  .text-label-tag {
+    @apply font-semibold text-sm leading-5 uppercase;
+    letter-spacing: 0.125rem;          /* 2px */
+  }
+  .text-label-button {
+    @apply font-medium text-sm leading-5;
+  }
+  .text-label-nav {
+    @apply font-medium text-sm leading-5;
+    letter-spacing: 0.03125rem;        /* 0.5px */
+  }
+
+  /* Brand */
+  .text-brand-name {
+    @apply font-bold text-xl tracking-tight;
+    line-height: 100%;
+  }
+  .text-brand-tagline {
+    @apply font-medium uppercase;
+    font-size: 0.75rem;                /* 12px */
+    line-height: 100%;
+    letter-spacing: 0.1em;
+  }
+
+  /* Data */
+  .text-stats-value {
+    @apply font-bold;
+    font-size: 2.25rem;                /* 36px */
+    line-height: 2.5rem;               /* 40px */
+    letter-spacing: -0.0625rem;        /* -1px */
+  }
+  .text-price-large {
+    @apply font-bold;
+    font-size: 1.875rem;               /* 30px */
+    line-height: 2.25rem;              /* 36px */
+  }
+
+  /* Headings */
+  .text-heading-card {
+    @apply font-semibold;
+    font-size: 1.125rem;               /* 18px */
+    line-height: 1.625rem;             /* 26px */
+  }
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -26,13 +145,8 @@ a, button, [role="button"], input, select, textarea {
 }
 
 /* ========================================
-   Design Tokens — Utility Classes
+   Effect Tokens — Shadows & Clips
    ======================================== */
-
-.color-navy { color: #1B2A4A; }
-.bg-navy { background-color: #1B2A4A; }
-.color-gold { color: #B9924F; }
-.color-white-muted { color: rgba(255, 255, 255, 0.75); }
 
 .text-shadow-hero {
   text-shadow: 0 2px 20px rgba(0,0,0,0.3);
@@ -75,7 +189,7 @@ a, button, [role="button"], input, select, textarea {
 
 /* Decorative accent block */
 .accent-block-navy {
-  background-color: #1B2A4A;
+  background-color: var(--color-navy);
   opacity: 0.1;
 }
 
@@ -98,7 +212,7 @@ a, button, [role="button"], input, select, textarea {
 
 /* FAQ plus icon bars */
 .faq-icon-bar {
-  background-color: #B9924F;
+  background-color: var(--color-gold);
 }
 
 
@@ -240,7 +354,7 @@ a, button, [role="button"], input, select, textarea {
   border-radius: 9999px;
   font-weight: 500;
   color: #fff;
-  background: linear-gradient(135deg, #1B2A4A 0%, #2E4A7A 50%, #1B2A4A 100%);
+  background: linear-gradient(135deg, var(--color-cta-primary) 0%, var(--color-cta-highlight) 50%, var(--color-cta-primary) 100%);
   background-size: 200% 200%;
   background-position: 0% 0%;
   box-shadow: 0 4px 20px rgba(27, 42, 74, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);

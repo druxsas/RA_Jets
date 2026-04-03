@@ -16,7 +16,7 @@ function BrandLogo() {
         {/* Shield shape */}
         <path
           d="M16 2L28 8V18C28 24 22.5 29 16 30C9.5 29 4 24 4 18V8L16 2Z"
-          fill="#1B2A4A"
+          fill="var(--color-navy)"
         />
         {/* Inner highlight */}
         <path
@@ -31,12 +31,12 @@ function BrandLogo() {
           fill="white"
         />
         {/* Gold accent line — exhaust trail */}
-        <line x1="16" y1="20" x2="16" y2="23" stroke="#B9924F" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="16" y1="20" x2="16" y2="23" stroke="var(--color-gold)" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
       {/* Typography */}
       <span className="flex items-baseline gap-0">
-        <span className="text-xl font-bold tracking-tight color-navy">RA</span>
-        <span className="text-xs font-medium tracking-widest uppercase color-gold ml-0.5">Jets</span>
+        <span className="text-brand-name text-navy">RA</span>
+        <span className="text-brand-tagline text-gold ml-0.5">Jets</span>
       </span>
     </span>
   )
@@ -80,7 +80,7 @@ export default function Navbar() {
             <li key={item.href}>
               <a
                 href={`#${item.href}`}
-                className="text-sm text-gray-800 hover:text-gray-600 font-medium"
+                className="text-label-nav text-gray-800 hover:text-gray-600"
               >
                 {item.label}
               </a>
@@ -106,7 +106,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <a
                   href={`#${item.href}`}
-                  className="block px-4 py-2.5 text-sm text-gray-800 hover:text-gray-600 rounded-xl hover:bg-white/40 font-medium"
+                  className="block px-4 py-2.5 text-label-nav text-gray-800 hover:text-gray-600 rounded-xl hover:bg-white/40"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

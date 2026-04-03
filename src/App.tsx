@@ -31,7 +31,7 @@ function FooterSection({ title, children }: { title: string; children: React.Rea
   return (
     <div>
       {/* Desktop: static title + content */}
-      <h4 className="hidden md:block text-sm font-semibold text-white uppercase tracking-wider mb-4">
+      <h4 className="hidden md:block text-label-tag text-white mb-4">
         {title}
       </h4>
       <div className="hidden md:block">{children}</div>
@@ -41,7 +41,7 @@ function FooterSection({ title, children }: { title: string; children: React.Rea
         className="md:hidden w-full flex items-center justify-between py-3 border-t border-gray-700 cursor-pointer"
         onClick={() => setOpen(!open)}
       >
-        <span className="text-sm font-semibold text-white uppercase tracking-wider">{title}</span>
+        <span className="text-label-tag text-white">{title}</span>
         <ChevronDown
           size={16}
           className={`text-gray-400 transition-transform duration-500 ease-in-out ${open ? 'rotate-180' : ''}`}
@@ -261,29 +261,29 @@ export default function App() {
 
           {/* Hero Content */}
           <div className="flex-1 flex items-center justify-center pt-0 md:pt-20 px-4">
-            <div className="liquid-glass-light rounded-3xl px-6 py-8 sm:px-10 sm:py-12 md:px-16 md:py-14 text-center max-w-lg md:max-w-none">
-              <p className="text-xs sm:text-sm font-semibold tracking-wider mb-3 sm:mb-4 entrance-label text-white">
+            <div className="liquid-glass-light rounded-x-large px-6 py-8 sm:px-10 sm:py-12 md:px-hero-card-x md:py-hero-card-y text-center max-w-lg md:max-w-none">
+              <p className="text-label-tag mb-3 sm:mb-4 entrance-label text-white">
                 EXCLUSIVE CHARTER
               </p>
               <h1>
-                <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tighter entrance-heading-1 text-white text-shadow-hero">
+                <span className="block text-display-h1-mobile sm:text-display-h2 md:text-display-h1 entrance-heading-1 text-white text-shadow-hero">
                   Fly Beyond
                 </span>
-                <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tighter entrance-heading-2 text-white text-shadow-hero">
+                <span className="block text-display-h1-mobile sm:text-display-h2 md:text-display-h1 entrance-heading-2 text-white text-shadow-hero">
                   Limits
                 </span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl mb-5 sm:mb-6 max-w-2xl mx-auto mt-4 sm:mt-6 entrance-subtitle color-white-muted">
+              <p className="text-body-base sm:text-body-large md:text-body-large-20 mb-5 sm:mb-6 max-w-2xl mx-auto mt-4 sm:mt-6 entrance-subtitle text-white/75">
                 Where every mile becomes a first-class experience.
               </p>
               <div className="flex items-center justify-center gap-3 sm:gap-4 entrance-buttons">
                 <a
                   href="#about"
-                  className="btn-ghost px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-base text-white border border-white/30 hover:border-white/60 hover:bg-white/10 whitespace-nowrap"
+                  className="btn-ghost px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-label-button sm:text-body-base text-white border border-white/30 hover:border-white/60 hover:bg-white/10 whitespace-nowrap"
                 >
                   Explore Fleet
                 </a>
-                <a href="#experience" className="btn-primary text-sm sm:text-base whitespace-nowrap">
+                <a href="#experience" className="btn-primary text-label-button sm:text-body-base whitespace-nowrap">
                   Reserve Now
                 </a>
               </div>
@@ -294,31 +294,31 @@ export default function App() {
       </div>{/* end hero clip wrapper */}
 
       {/* ===== STORY SECTION ===== */}
-      <section id="about" className="relative z-10 py-12 md:py-24 bg-white shadow-section-top overflow-hidden">
+      <section id="about" className="relative z-10 py-12 md:py-section-y bg-white shadow-section-top overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             {/* Text */}
             <AnimateOnScroll animation="stagger">
-              <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
+              <p className="text-label-tag mb-3 text-gold">
                 ABOUT US
               </p>
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 md:mb-6 color-navy">
+              <h2 className="text-display-h2-mobile md:text-display-h2 mb-4 md:mb-6 text-navy">
                 Redefining Private Aviation
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-4">
+              <p className="text-gray-600 text-body-large mb-4">
                 Founded with a singular vision — to make private jet travel accessible without
                 compromising on luxury. RA_Jets bridges the gap between exclusivity and
                 attainability, offering a seamless charter experience tailored to professionals,
                 entrepreneurs, and families who value their time.
               </p>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              <p className="text-gray-600 text-body-large mb-8">
                 From our curated fleet of world-class aircraft to our white-glove concierge
                 service, every detail is designed to elevate your journey. We don't just fly you
                 there — we transform the way you travel.
               </p>
               <a
                 href="#experience"
-                className="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 color-gold"
+                className="inline-flex items-center gap-2 text-label-tag hover:opacity-80 text-gold"
               >
                 View our fleet
                 <Plane size={16} />
@@ -343,7 +343,7 @@ export default function App() {
           <AnimateOnScroll animation="stagger" className="mt-12 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-3xl md:text-4xl font-bold tracking-tight color-navy">
+                <p className="text-stats-value text-navy">
                   {stat.value}
                 </p>
                 <p className="text-gray-500 mt-1 text-sm">{stat.label}</p>
@@ -354,16 +354,16 @@ export default function App() {
       </section>
 
       {/* ===== RATES SECTION ===== */}
-      <section id="experience" className="relative z-10 py-12 md:py-24 bg-gray-50">
+      <section id="experience" className="relative z-10 py-12 md:py-section-y bg-gray-50">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <AnimateOnScroll animation="stagger" className="text-center mb-10 md:mb-16">
-            <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
+            <p className="text-label-tag mb-3 text-gold">
               EXPERIENCE
             </p>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 color-navy">
+            <h2 className="text-display-h2-mobile md:text-display-h2 mb-3 md:mb-4 text-navy">
               Choose Your Experience
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-body-large max-w-2xl mx-auto">
               Transparent, all-inclusive pricing. No hidden fees — fuel, crew, and landing charges included.
             </p>
           </AnimateOnScroll>
@@ -382,7 +382,7 @@ export default function App() {
                   {rate.tier === 'Light' && <Feather size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
                   {rate.tier === 'Midsize' && <Users size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
                   {rate.tier === 'Heavy' && <Weight size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
-                  <h3 className="text-xl font-semibold">{rate.tier}</h3>
+                  <h3 className="text-display-h3">{rate.tier}</h3>
                 </div>
                 <p className={`text-sm mb-1 ${rate.highlighted ? 'text-gray-300' : 'text-gray-500'}`}>
                   {rate.capacity}
@@ -391,7 +391,7 @@ export default function App() {
                   {rate.description}
                 </p>
                 <div className="mb-6">
-                  <span className="text-3xl font-bold">{rate.price}</span>
+                  <span className="text-price-large">{rate.price}</span>
                   <span className={`text-sm ${rate.highlighted ? 'text-gray-400' : 'text-gray-500'}`}>
                     {rate.unit}
                   </span>
@@ -431,16 +431,16 @@ export default function App() {
       </section>
 
       {/* ===== BENEFITS SECTION ===== */}
-      <section id="advantages" className="relative z-10 py-12 md:py-24 bg-white">
+      <section id="advantages" className="relative z-10 py-12 md:py-section-y bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <AnimateOnScroll animation="stagger" className="text-center mb-10 md:mb-16">
-            <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
+            <p className="text-label-tag mb-3 text-gold">
               ADVANTAGES
             </p>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 color-navy">
+            <h2 className="text-display-h2-mobile md:text-display-h2 mb-3 md:mb-4 text-navy">
               The Difference Is in the Details
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-body-large max-w-2xl mx-auto">
               Every aspect of your journey is curated to deliver an unmatched experience.
             </p>
           </AnimateOnScroll>
@@ -456,7 +456,7 @@ export default function App() {
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 bg-navy">
                     <Icon size={22} className="text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 color-navy">
+                  <h3 className="text-heading-card mb-2 text-navy">
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -470,16 +470,16 @@ export default function App() {
       </section>
 
       {/* ===== FAQ SECTION ===== */}
-      <section id="faq" className="relative z-10 py-12 md:py-24 bg-gray-50 shadow-section-bottom">
+      <section id="faq" className="relative z-10 py-12 md:py-section-y bg-gray-50 shadow-section-bottom">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <AnimateOnScroll animation="stagger" className="text-center mb-10 md:mb-16">
-            <p className="text-sm font-semibold tracking-wider mb-3 color-gold">
+            <p className="text-label-tag mb-3 text-gold">
               FAQ
             </p>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-3 md:mb-4 color-navy">
+            <h2 className="text-display-h2-mobile md:text-display-h2 mb-3 md:mb-4 text-navy">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-body-large">
               Everything you need to know before your first flight.
             </p>
           </AnimateOnScroll>
@@ -523,7 +523,7 @@ export default function App() {
 
       {/* ===== FOOTER ===== */}
       <footer ref={footerRef} className="relative md:fixed md:bottom-0 md:left-0 md:right-0 z-[5] entrance-footer bg-navy overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 md:py-16">
+        <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 md:py-footer-y">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-12">
             {/* Brand */}
             <div>
@@ -549,17 +549,17 @@ export default function App() {
                     />
                     <path
                       d="M16 8L11.5 17H14V20H18V17H20.5L16 8Z"
-                      fill="#1B2A4A"
+                      fill="var(--color-navy)"
                     />
-                    <line x1="16" y1="20" x2="16" y2="23" stroke="#B9924F" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="16" y1="20" x2="16" y2="23" stroke="var(--color-gold)" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                   <span className="flex items-baseline gap-0">
-                    <span className="text-xl font-bold tracking-tight text-white">RA</span>
-                    <span className="text-xs font-medium tracking-widest uppercase color-gold ml-0.5">Jets</span>
+                    <span className="text-brand-name text-white">RA</span>
+                    <span className="text-brand-tagline text-gold ml-0.5">Jets</span>
                   </span>
                 </span>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-body-small">
                 Premium private aviation, made accessible. Your journey begins the moment you
                 contact us.
               </p>
@@ -637,7 +637,7 @@ export default function App() {
         }`}
         aria-label="Back to top"
       >
-        <ChevronUp size={22} className="color-navy" />
+        <ChevronUp size={22} className="text-navy" />
       </button>
     </div>
   )
