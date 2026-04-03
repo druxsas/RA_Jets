@@ -516,11 +516,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* Spacer for fixed footer */}
-      <div ref={spacerRef} className="relative z-10 pointer-events-none" />
+      {/* Spacer for fixed footer (desktop only) */}
+      <div ref={spacerRef} className="hidden md:block relative z-10 pointer-events-none" />
 
       {/* ===== FOOTER ===== */}
-      <footer ref={footerRef} className="fixed bottom-0 left-0 right-0 z-[5] entrance-footer bg-navy overflow-hidden overflow-y-auto max-h-screen">
+      <footer ref={footerRef} className="relative md:fixed md:bottom-0 md:left-0 md:right-0 z-[5] entrance-footer bg-navy overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-12">
             {/* Brand */}
@@ -611,7 +611,7 @@ export default function App() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-8 md:mt-16 pt-6 md:pt-8 md:border-t md:border-gray-700 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="mt-6 md:mt-16 pt-4 md:pt-8 md:border-t md:border-gray-700 flex flex-col md:flex-row items-center justify-between gap-1 md:gap-4 text-center">
             <p className="text-gray-500 text-sm">
               &copy; {new Date().getFullYear()} RA_Jets. All rights reserved.
             </p>
