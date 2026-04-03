@@ -1,6 +1,47 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
+function BrandLogo() {
+  return (
+    <span className="flex items-center gap-1.5">
+      {/* Monogram mark */}
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        {/* Shield shape */}
+        <path
+          d="M16 2L28 8V18C28 24 22.5 29 16 30C9.5 29 4 24 4 18V8L16 2Z"
+          fill="#1B2A4A"
+        />
+        {/* Inner highlight */}
+        <path
+          d="M16 4L26 9V18C26 23 21.5 27.5 16 28.5C10.5 27.5 6 23 6 18V9L16 4Z"
+          fill="none"
+          stroke="rgba(255,255,255,0.15)"
+          strokeWidth="0.5"
+        />
+        {/* Minimal jet — vertical / ascending */}
+        <path
+          d="M16 8L11.5 17H14V20H18V17H20.5L16 8Z"
+          fill="white"
+        />
+        {/* Gold accent line — exhaust trail */}
+        <line x1="16" y1="20" x2="16" y2="23" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+      {/* Typography */}
+      <span className="flex items-baseline gap-0">
+        <span className="text-xl font-bold tracking-tight color-navy">RA</span>
+        <span className="text-xs font-medium tracking-widest uppercase color-gold ml-0.5">Jets</span>
+      </span>
+    </span>
+  )
+}
+
 const NAV_ITEMS = [
   { label: 'About', href: 'about' },
   { label: 'Experience', href: 'experience' },
@@ -29,8 +70,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-4 entrance-navbar">
       <div className="liquid-glass mx-auto max-w-7xl rounded-full px-8 py-3 flex items-center justify-between">
         {/* Brand */}
-        <a href="#" className="relative z-10 text-xl font-semibold text-gray-900">
-          RA_Jets
+        <a href="#" className="relative z-10">
+          <BrandLogo />
         </a>
 
         {/* Desktop Menu */}
