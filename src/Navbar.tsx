@@ -31,7 +31,7 @@ function BrandLogo() {
           fill="white"
         />
         {/* Gold accent line — exhaust trail */}
-        <line x1="16" y1="20" x2="16" y2="23" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="16" y1="20" x2="16" y2="23" stroke="#B9924F" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
       {/* Typography */}
       <span className="flex items-baseline gap-0">

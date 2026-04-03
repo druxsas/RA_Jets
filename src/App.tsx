@@ -9,8 +9,10 @@ import {
   Shield,
   Leaf,
   Phone,
-  Plane,
+  Feather,
   Users,
+  Weight,
+  Plane,
   MapPin,
   Mail,
   ChevronUp,
@@ -377,9 +379,9 @@ export default function App() {
                 }`}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  {rate.tier === 'Light' && <Plane size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
+                  {rate.tier === 'Light' && <Feather size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
                   {rate.tier === 'Midsize' && <Users size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
-                  {rate.tier === 'Heavy' && <Globe size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
+                  {rate.tier === 'Heavy' && <Weight size={24} className={rate.highlighted ? 'text-gray-300' : 'text-gray-400'} />}
                   <h3 className="text-xl font-semibold">{rate.tier}</h3>
                 </div>
                 <p className={`text-sm mb-1 ${rate.highlighted ? 'text-gray-300' : 'text-gray-500'}`}>
@@ -549,7 +551,7 @@ export default function App() {
                       d="M16 8L11.5 17H14V20H18V17H20.5L16 8Z"
                       fill="#1B2A4A"
                     />
-                    <line x1="16" y1="20" x2="16" y2="23" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="16" y1="20" x2="16" y2="23" stroke="#B9924F" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                   <span className="flex items-baseline gap-0">
                     <span className="text-xl font-bold tracking-tight text-white">RA</span>

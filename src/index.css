@@ -31,7 +31,7 @@ a, button, [role="button"], input, select, textarea {
 
 .color-navy { color: #1B2A4A; }
 .bg-navy { background-color: #1B2A4A; }
-.color-gold { color: #8B7355; }
+.color-gold { color: #B9924F; }
 .color-white-muted { color: rgba(255, 255, 255, 0.75); }
 
 .text-shadow-hero {
@@ -98,7 +98,7 @@ a, button, [role="button"], input, select, textarea {
 
 /* FAQ plus icon bars */
 .faq-icon-bar {
-  background-color: #8B7355;
+  background-color: #B9924F;
 }
 
 
