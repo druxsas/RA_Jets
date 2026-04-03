@@ -1,0 +1,437 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global: smooth, gradual hover transitions on all interactive elements */
+a, button, [role="button"], input, select, textarea {
+  transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.08s;
+}
+
+/* Smooth hover for non-interactive containers (cards, FAQ items) */
+.hover-smooth {
+  transition: background-color 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.08s,
+              box-shadow 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.08s;
+}
+
+/* ========================================
+   Design Tokens — Utility Classes
+   ======================================== */
+
+.color-navy { color: #1B2A4A; }
+.bg-navy { background-color: #1B2A4A; }
+.color-gold { color: #8B7355; }
+.color-white-muted { color: rgba(255, 255, 255, 0.75); }
+
+.text-shadow-hero {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.shadow-section-top {
+  box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
+}
+
+.shadow-section-bottom {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.clip-inset {
+  clip-path: inset(0);
+}
+
+/* Hero overlays */
+.overlay-gradient-top {
+  background: linear-gradient(to bottom, #f9fafb 0%, #f9fafb 5%, rgba(249, 250, 251, 0.85) 20%, rgba(249, 250, 251, 0.4) 45%, transparent 70%);
+}
+
+.overlay-dark-hero {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Hero video sizing */
+.hero-video {
+  transform: translateZ(0);
+  height: 120%;
+  top: 0%;
+  object-position: center 70%;
+}
+
+/* Secondary ghost button (hero) */
+.btn-ghost {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Decorative accent block */
+.accent-block-navy {
+  background-color: #1B2A4A;
+  opacity: 0.1;
+}
+
+/* FAQ accordion expand/collapse */
+.faq-panel {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in-out;
+}
+
+.faq-panel.is-open {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Allow liquid-glass to be used on fixed/absolute elements */
+.liquid-glass.fixed {
+  position: fixed;
+}
+
+/* FAQ plus icon bars */
+.faq-icon-bar {
+  background-color: #8B7355;
+}
+
+
+/* ========================================
+   Liquid Glass Effect
+   Based on github.com/Z1Code/glass-refraction
+   ======================================== */
+
+.liquid-glass {
+  /* Layer 1: Backdrop blur foundation */
+  backdrop-filter: blur(26px) saturate(1.7) brightness(1.08);
+  -webkit-backdrop-filter: blur(26px) saturate(1.7) brightness(1.08);
+
+  /* Layer 2: Semi-transparent gradient background + shimmer sweep */
+  /* Higher opacity fallback for browsers where backdrop-filter doesn't work across stacking contexts */
+  background:
+    linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.06) 50%, transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
+  background-size: 200% 100%, 100% 100%;
+  animation: glass-shimmer 7s ease-in-out infinite;
+
+  /* Depth: box-shadow rim + highlights */
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 24px -4px rgba(0, 0, 0, 0.12);
+
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Layer 3: Specular highlight (static — no animation to avoid flash bugs) */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 8%, rgba(255, 255, 255, 0.5) 50%, transparent 92%);
+  background-size: 100% 100%, 100% 1px;
+  background-position: 0 0, 0 0;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Layer 4: Chromatic dispersion at edges */
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 55% 50% at 12% 50%, rgba(0, 180, 255, 0.05), transparent 70%),
+    radial-gradient(ellipse 50% 55% at 50% 12%, rgba(120, 80, 255, 0.045), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 88% 50%, rgba(255, 100, 200, 0.04), transparent 70%),
+    radial-gradient(ellipse 50% 55% at 50% 88%, rgba(100, 255, 180, 0.03), transparent 70%);
+  box-shadow:
+    inset  1px  0 0 0 rgba(0, 180, 255, 0.08),
+    inset -1px  0 0 0 rgba(255, 100, 200, 0.08),
+    inset  0  1px 0 0 rgba(100, 255, 180, 0.06),
+    inset  0 -1px 0 0 rgba(255, 200, 50, 0.06);
+  pointer-events: none;
+}
+
+/* Shimmer: sweeps white band across the glass */
+@keyframes glass-shimmer {
+  0%   { background-position: -200% 0, 0 0; }
+  100% { background-position: 200% 0, 0 0; }
+}
+
+/* ========================================
+   Liquid Glass — Light variant (macOS-style)
+   Lower blur, more transparent, subtle tint
+   ======================================== */
+
+.liquid-glass-light {
+  backdrop-filter: blur(10px) saturate(1.3) brightness(1.02);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3) brightness(1.02);
+
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 32px -4px rgba(0, 0, 0, 0.12);
+
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 8%, rgba(255, 255, 255, 0.2) 50%, transparent 92%);
+  background-size: 100% 100%, 100% 1px;
+  background-position: 0 0, 0 0;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.liquid-glass-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 55% 50% at 12% 50%, rgba(0, 180, 255, 0.03), transparent 70%),
+    radial-gradient(ellipse 50% 55% at 50% 12%, rgba(120, 80, 255, 0.025), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 88% 50%, rgba(255, 100, 200, 0.02), transparent 70%),
+    radial-gradient(ellipse 50% 55% at 50% 88%, rgba(100, 255, 180, 0.015), transparent 70%);
+  box-shadow:
+    inset  1px  0 0 0 rgba(0, 180, 255, 0.05),
+    inset -1px  0 0 0 rgba(255, 100, 200, 0.05),
+    inset  0  1px 0 0 rgba(100, 255, 180, 0.04),
+    inset  0 -1px 0 0 rgba(255, 200, 50, 0.04);
+  pointer-events: none;
+}
+
+
+/* ========================================
+   Primary Button Component
+   ======================================== */
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #1B2A4A 0%, #2E4A7A 50%, #1B2A4A 100%);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  box-shadow: 0 4px 20px rgba(27, 42, 74, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-position: 100% 100%;
+  box-shadow: 0 6px 28px rgba(27, 42, 74, 0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+
+/* ========================================
+   Mobile Dropdown Glass
+   ======================================== */
+
+.liquid-glass-dropdown {
+  backdrop-filter: blur(26px) saturate(1.7) brightness(1.08);
+  -webkit-backdrop-filter: blur(26px) saturate(1.7) brightness(1.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25));
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 8px 32px -4px rgba(0, 0, 0, 0.12);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Chromatic dispersion on dropdown too */
+.liquid-glass-dropdown::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 55% 50% at 12% 50%, rgba(0, 180, 255, 0.04), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 88% 50%, rgba(255, 100, 200, 0.035), transparent 70%);
+  box-shadow:
+    inset  1px  0 0 0 rgba(0, 180, 255, 0.06),
+    inset -1px  0 0 0 rgba(255, 100, 200, 0.06);
+  pointer-events: none;
+}
+
+/* ========================================
+   Page Load Entrance Animations
+   ======================================== */
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-navbar {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.entrance-label {
+  animation: fade-up-soft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.entrance-heading-1 {
+  animation: fade-up-soft 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+.entrance-heading-2 {
+  animation: fade-up-soft 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+}
+
+.entrance-subtitle {
+  animation: fade-up-soft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.0s both;
+}
+
+.entrance-buttons {
+  animation: fade-up-soft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both;
+}
+
+.entrance-navbar {
+  transform: translateY(-100%);
+  animation: slide-down-navbar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards;
+}
+
+/* Disable glass animations on navbar to prevent flash/darkening bug */
+.entrance-navbar .liquid-glass {
+  animation: none;
+}
+.entrance-navbar .liquid-glass::before {
+  animation: none;
+  filter: none;
+}
+
+
+.entrance-video {
+  animation: fade-in 1.2s ease-out 0s both;
+}
+
+.entrance-footer {
+  animation: fade-in 0.5s ease-out 0.8s both;
+}
+
+/* ========================================
+   Scroll Animations
+   ======================================== */
+
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-hidden-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-visible-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-hidden-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-visible-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-hidden-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.scroll-visible-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger entrance: uses animation (keyframes) so it doesn't
+   interfere with hover transitions on the same elements. */
+@keyframes stagger-fade-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-children > * {
+  opacity: 0;
+}
+
+.stagger-children.stagger-visible > *:nth-child(1) { animation: stagger-fade-in 0.7s ease-out 0ms    forwards; }
+.stagger-children.stagger-visible > *:nth-child(2) { animation: stagger-fade-in 0.7s ease-out 120ms  forwards; }
+.stagger-children.stagger-visible > *:nth-child(3) { animation: stagger-fade-in 0.7s ease-out 240ms  forwards; }
+.stagger-children.stagger-visible > *:nth-child(4) { animation: stagger-fade-in 0.7s ease-out 360ms  forwards; }
+.stagger-children.stagger-visible > *:nth-child(5) { animation: stagger-fade-in 0.7s ease-out 480ms  forwards; }
+.stagger-children.stagger-visible > *:nth-child(6) { animation: stagger-fade-in 0.7s ease-out 600ms  forwards; }
